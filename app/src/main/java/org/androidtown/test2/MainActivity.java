@@ -15,8 +15,6 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-import static android.R.id.edit;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -155,7 +153,6 @@ public class MainActivity extends AppCompatActivity
                 case R.id.button_result:
 
                     if(count == 1){
-                        edit.setText("" + (Double.parseDouble(number) + Double.parseDouble(edit.getText().toString())));
                     }
                     break;
 
