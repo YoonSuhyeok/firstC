@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     int count = 0;
 
     EditText editText;
+    TextView process;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,16 @@ public class MainActivity extends AppCompatActivity
         Button button_muti = (Button)findViewById(R.id.button_muti);
         Button button_div = (Button)findViewById(R.id.button_div);
         Button button_result = (Button)findViewById(R.id.button_result);
+        Button button_reset = (Button)findViewById(R.id.button_result);
 
         button_plus.setOnClickListener(mListener);
+        button_sub.setOnClickListener(mListener);
+        button_muti.setOnClickListener(mListener);
+        button_div.setOnClickListener(mListener);
+        button_result.setOnClickListener(mListener);
+        button_reset.setOnClickListener(mListener);
+
+        process = (TextView)findViewById(R.id.re_process);
     }
 
     @Override
@@ -112,16 +122,16 @@ public class MainActivity extends AppCompatActivity
     public void onClick (View v){
 
         switch (v.getId()){
-            case R.id.button_0 : editText.setText(editText.getText().toString() + "0"); break;
-            case R.id.button_1 : editText.setText(editText.getText().toString() + "1"); break;
-            case R.id.button_2 : editText.setText(editText.getText().toString() + "2"); break;
-            case R.id.button_3 : editText.setText(editText.getText().toString() + "3"); break;
-            case R.id.button_4 : editText.setText(editText.getText().toString() + "4"); break;
-            case R.id.button_5 : editText.setText(editText.getText().toString() + "5"); break;
-            case R.id.button_6 : editText.setText(editText.getText().toString() + "6"); break;
-            case R.id.button_7 : editText.setText(editText.getText().toString() + "7"); break;
-            case R.id.button_8 : editText.setText(editText.getText().toString() + "8"); break;
-            case R.id.button_9 : editText.setText(editText.getText().toString() + "9"); break;
+            case R.id.button_0 : editText.setText(editText.getText().toString() + "0"); process.append("0"); break;
+            case R.id.button_1 : editText.setText(editText.getText().toString() + "1"); process.append("1");break;
+            case R.id.button_2 : editText.setText(editText.getText().toString() + "2"); process.append("2");break;
+            case R.id.button_3 : editText.setText(editText.getText().toString() + "3"); process.append("3");break;
+            case R.id.button_4 : editText.setText(editText.getText().toString() + "4"); process.append("4");break;
+            case R.id.button_5 : editText.setText(editText.getText().toString() + "5"); process.append("5");break;
+            case R.id.button_6 : editText.setText(editText.getText().toString() + "6"); process.append("6");break;
+            case R.id.button_7 : editText.setText(editText.getText().toString() + "7"); process.append("7");break;
+            case R.id.button_8 : editText.setText(editText.getText().toString() + "8"); process.append("8");break;
+            case R.id.button_9 : editText.setText(editText.getText().toString() + "9"); process.append("9");break;
         }
     }
 
@@ -132,30 +142,38 @@ public class MainActivity extends AppCompatActivity
             switch (v.getId()) {
                 case R.id.button_plus:
                     arrayList.add(editText.getText().toString());
+                    process.append("+");
                     editText.setText("");
                     count = 1;
                     break;
                 case R.id.button_sub:
                     arrayList.add(editText.getText().toString());
+                    process.append("-");
                     editText.setText("");
                     count = 2;
                     break;
                 case R.id.button_muti:
                     arrayList.add(editText.getText().toString());
+                    process.append("*");
                     editText.setText("");
                     count = 3;
                     break;
                 case R.id.button_div:
                     arrayList.add(editText.getText().toString());
+                    process.append("÷");
                     editText.setText("");
                     count = 4;
                     break;
                 case R.id.button_result:
+                    process.append("=");
 
                     if(count == 1){
                     }
                     break;
 
+                case R.id.button_reset:
+                    process.setText("");
+                    break;
             }
 
 
