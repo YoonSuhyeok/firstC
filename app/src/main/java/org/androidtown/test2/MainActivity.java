@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         Button button_muti = (Button)findViewById(R.id.button_muti);
         Button button_div = (Button)findViewById(R.id.button_div);
         Button button_result = (Button)findViewById(R.id.button_result);
-        Button button_reset = (Button)findViewById(R.id.button_result);
+        Button button_reset = (Button)findViewById(R.id.button_reset);
 
         button_plus.setOnClickListener(mListener);
         button_sub.setOnClickListener(mListener);
